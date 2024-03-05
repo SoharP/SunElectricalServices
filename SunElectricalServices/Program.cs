@@ -4,9 +4,9 @@ using SunElectricalServices.Areas.Identity.Data;
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("Connection") ?? throw new InvalidOperationException("Connection string 'Connection' not found.");
 
-builder.Services.AddDbContext<>(options => options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<SunContext>(options => options.UseSqlServer(connectionString));
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<>();
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<SunContext>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -31,5 +31,9 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
+app.MapRazorPages();
+
 
 app.Run();

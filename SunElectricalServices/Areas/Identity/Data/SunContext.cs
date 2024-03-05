@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace SunElectricalServices.Areas.Identity.Data;
 
-public class  : IdentityDbContext<IdentityUser>
+public class SunContext : IdentityDbContext<IdentityUser>
 {
-    public (DbContextOptions<> options)
+    public SunContext(DbContextOptions<SunContext> options)
         : base(options)
     {
     }
