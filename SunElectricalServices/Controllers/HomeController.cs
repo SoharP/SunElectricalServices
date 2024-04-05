@@ -23,6 +23,21 @@ namespace SunElectricalServices.Controllers
             return View();
         }
 
+        public IActionResult Residential()
+        {
+            return View();
+        }
+
+        public IActionResult Commercial()
+        {
+            return View();
+        }
+
+        public IActionResult EVChargers()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
