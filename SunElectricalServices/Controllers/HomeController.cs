@@ -38,6 +38,31 @@ namespace SunElectricalServices.Controllers
             return View();
         }
 
+        public IActionResult SwitchBoardUpgrades()
+        {
+            return View();
+        }
+
+        public IActionResult SmartHomeInstallations()
+        {
+            return View();
+        }
+
+        public IActionResult MaintainaceandServicing()
+        {
+            return View();
+        }
+
+        public IActionResult ContactUs()
+        {
+            return View();
+        }
+
+        public IActionResult AboutUs()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
