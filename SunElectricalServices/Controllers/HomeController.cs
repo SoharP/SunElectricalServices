@@ -48,7 +48,7 @@ namespace SunElectricalServices.Controllers
             return View();
         }
 
-        public IActionResult MaintaianceandServicing()
+        public IActionResult MaintenanceandServicing()
         {
             return View();
         }
