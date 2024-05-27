@@ -8,5 +8,7 @@
         public string Email { get; set; }
         public string Active { get; set; }
 
+        public ICollection<Service> Services { get; set; }
+
     }
 }
