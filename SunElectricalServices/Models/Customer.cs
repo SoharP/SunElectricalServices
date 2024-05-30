@@ -1,4 +1,6 @@
-﻿namespace SunElectricalServices.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace SunElectricalServices.Models
 {
     public class Customer
     {
@@ -10,6 +12,8 @@
         public string City { get; set; }
         public string Zip { get; set; }
         public string Email { get; set; }
+        [DataType(DataType.EmailAddress)]
+        [Required(ErrorMessage = "Please enter Email ID"), MaxLength(30)]
         public string Phone { get; set; }
 
         public ICollection<Booking> Bookings { get; set; }
