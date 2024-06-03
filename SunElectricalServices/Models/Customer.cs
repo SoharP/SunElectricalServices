@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace SunElectricalServices.Models
 {
@@ -15,8 +16,10 @@ namespace SunElectricalServices.Models
         [DataType(DataType.EmailAddress)]
         [Required(ErrorMessage = "Please enter Email ID"), MaxLength(30)]
         public string Phone { get; set; }
-
-        public ICollection<Booking> Bookings { get; set; }
+        [Required]
+        [DisplayName("Phone Number")]
+        [RegularExpression("((^\\([0]\\d{1}\\))(\\d{7}$)|(^\\([0][2]\\d{1}\\))(\\d{6,8}$)|([0][8][0][0])([\\s])(\\d{5,8}$))", ErrorMessage = "Please enter a valid phone number")]
+    public ICollection<Booking> Bookings { get; set; }
 
     }
 }
