@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SunElectricalServices.Areas.Identity.Data;
 
@@ -11,9 +12,11 @@ using SunElectricalServices.Areas.Identity.Data;
 namespace SunElectricalServices.Migrations
 {
     [DbContext(typeof(SunContext))]
-    partial class SunContextModelSnapshot : ModelSnapshot
+    [Migration("20240613023210_SunElectricalServices")]
+    partial class SunElectricalServices
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
