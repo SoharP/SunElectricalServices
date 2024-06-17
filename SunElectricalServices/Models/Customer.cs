@@ -6,7 +6,9 @@ namespace SunElectricalServices.Models
     public class Customer
     {
         public int CustomerID { get; set; }
+        [DisplayName("First Name")]
         public string First_Name { get; set; }
+        [DisplayName("Last Name")]
         public string Last_Name { get; set; }
         public string Address { get; set; }
         public string Suburb { get; set; }

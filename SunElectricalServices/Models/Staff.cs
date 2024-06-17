@@ -1,11 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace SunElectricalServices.Models
 {
     public class Staff
     {
         public int StaffID { get; set; }
+        [DisplayName("First Name")]
         public string First_Name { get; set; }
+        [DisplayName("Last Name")]
         public string Last_Name { get; set; }
         public string Email { get; set; }
         [DataType(DataType.EmailAddress)]
