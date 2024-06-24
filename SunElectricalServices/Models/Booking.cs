@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using SunElectricalServices.Models;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics;
 
 namespace SunElectricalServices.Models
@@ -6,6 +8,7 @@ namespace SunElectricalServices.Models
     public class Booking
     {
         public int BookingID { get; set; }
+        [ForeignKey(CustomerID) public int CustomerID { get; set; }
 
         [DataType(DataType.Time)]
         public DateTime Time { get; set; }
@@ -16,4 +19,4 @@ namespace SunElectricalServices.Models
         public int CustomerID { get; set; }
         public Customer Customer { get; set; }
     }
-}
+]

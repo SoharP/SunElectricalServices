@@ -1,10 +1,14 @@
-﻿using System.ComponentModel;
+﻿using Microsoft.AspNetCore.Mvc;
+using SunElectricalServices.Models;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SunElectricalServices.Models
 {
     public class Customer
     {
+        [ForeignKey(BookingID) pubic int BookingID { get; set; }
         public int CustomerID { get; set; }
         [DisplayName("First Name")]
         public string First_Name { get; set; }
