@@ -7,9 +7,9 @@ namespace SunElectricalServices.Models
     {
         public int StaffID { get; set; }
         [DisplayName("First Name")]
-        public string First_Name { get; set; }
+        public string FirstName { get; set; }
         [DisplayName("Last Name")]
-        public string Last_Name { get; set; }
+        public string LastName { get; set; }
         public string Email { get; set; }
         [DataType(DataType.EmailAddress)]
         [Required(ErrorMessage = "Please enter Email ID"), MaxLength(30)]
