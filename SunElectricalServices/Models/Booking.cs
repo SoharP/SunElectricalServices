@@ -7,11 +7,11 @@ namespace SunElectricalServices.Models
 {
     public class Booking
     {
-        public int BookingID { get; set; }
+       [Key] public int BookingID { get; set; } //Unique identifier for each booking
         public int CustomerID { get; set; }
 
         [DataType(DataType.Time)]
-        public DateTime Time { get; set; }
+        public DateTime Time { get; set; } // date of booking the service 
         public DateTime Day { get; set; }
 
         [DataType(DataType.Date)]

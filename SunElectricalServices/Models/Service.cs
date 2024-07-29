@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics;
 
@@ -6,7 +7,7 @@ namespace SunElectricalServices.Models
 {
     public class Service
     {
-        public int ServiceID { get; set; }
+       [Key] public int ServiceID { get; set; } //  Unique Identifier for Services
 
         public int StaffID { get; set; }
         public string Residential { get; set; }

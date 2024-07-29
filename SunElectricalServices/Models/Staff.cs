@@ -5,7 +5,7 @@ namespace SunElectricalServices.Models
 {
     public class Staff
     {
-        public int StaffID { get; set; }
+      [Key] public int StaffID { get; set; } // This is the Staff's Unique Identifier
         [DisplayName("First Name")]
         public string FirstName { get; set; }
         [DisplayName("Last Name")]
