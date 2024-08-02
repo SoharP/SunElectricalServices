@@ -9,11 +9,10 @@ namespace SunElectricalServices.Models
     public class Customer
     {
 
-        public int BookingID { get; set; }
-
        [Key] public int CustomerID { get; set; } // This is the Customer's Unique Identifier
 
         [DisplayName("First Name")]
+        // Will display as "First Name"
         public string First_Name { get; set; }
         [MaxLength(15)]
 
@@ -28,9 +27,10 @@ namespace SunElectricalServices.Models
         public string City { get; set; }
 
         public string Zip { get; set; }
+        [MaxLength(5)]
 
         [DataType(DataType.EmailAddress)]
-        [Required(ErrorMessage = "Please enter Email ID"), MaxLength(30)]
+        [Required(ErrorMessage = "Please enter Email Address")]
         public string Email { get; set; }
 
         [Required]
@@ -39,6 +39,7 @@ namespace SunElectricalServices.Models
         // Validation for phone numbers (this doesnt allow any numbers to be written, needs a format such as (021)
         public string Phone { get; set; }
 
+        public int BookingID { get; set; }
         public ICollection<Booking> Bookings { get; set; }
 
     }

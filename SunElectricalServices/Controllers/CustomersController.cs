@@ -54,7 +54,7 @@ namespace SunElectricalServices.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CustomerID,First_Name,Last_Name,Address,Suburb,City,Zip,Email,Phone")] Customer customer)
+        public async Task<IActionResult> Create([Bind("CustomerID,First_Name,Last_Name,Address,Suburb,City,Zip,Email,Phone,BookingID")] Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace SunElectricalServices.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CustomerID,First_Name,Last_Name,Address,Suburb,City,Zip,Email,Phone")] Customer customer)
+        public async Task<IActionResult> Edit(int id, [Bind("CustomerID,First_Name,Last_Name,Address,Suburb,City,Zip,Email,Phone,BookingID")] Customer customer)
         {
             if (id != customer.CustomerID)
             {
