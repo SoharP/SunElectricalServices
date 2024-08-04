@@ -17,6 +17,7 @@ namespace SunElectricalServices.Models
         [MaxLength(15)]
 
         [DisplayName("Last Name")]
+        // Will display as "Last Name"
         public string Last_Name { get; set; }
         [MaxLength(20)]
 
@@ -25,10 +26,9 @@ namespace SunElectricalServices.Models
         public string Suburb { get; set; }
 
         public string City { get; set; }
-
-        public string Zip { get; set; }
         [MaxLength(5)]
-
+        public string Zip { get; set; }
+       
         [DataType(DataType.EmailAddress)]
         [Required(ErrorMessage = "Please enter Email Address")]
         public string Email { get; set; }

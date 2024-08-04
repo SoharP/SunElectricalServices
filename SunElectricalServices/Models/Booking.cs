@@ -11,7 +11,7 @@ namespace SunElectricalServices.Models
         public int CustomerID { get; set; }
 
         [DataType(DataType.Time)]
-        public DateTime Time { get; set; } // date of booking the service 
+        public DateTime Time { get; set; } // time of booking the service 
         public DateTime Day { get; set; }
 
         [DataType(DataType.Date)]

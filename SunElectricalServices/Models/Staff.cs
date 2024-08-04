@@ -10,10 +10,12 @@ namespace SunElectricalServices.Models
         public string FirstName { get; set; }
         [DisplayName("Last Name")]
         public string LastName { get; set; }
+
+        [Required(ErrorMessage = "Please enter Email ID"), MaxLength(30)]
         public string Email { get; set; }
         [DataType(DataType.EmailAddress)]
-        [Required(ErrorMessage = "Please enter Email ID"), MaxLength(30)]
-        public string Active { get; set; }
+        
+        public string Availability { get; set; }
 
         public ICollection<Service> Services { get; set; }
 

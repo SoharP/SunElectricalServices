@@ -56,7 +56,7 @@ namespace SunElectricalServices.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CustomerID,First_Name,Last_Name,Address,Suburb,City,Zip,Email,Phone,BookingID")] Customer customer)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 _context.Add(customer);
                 await _context.SaveChangesAsync();
@@ -93,7 +93,7 @@ namespace SunElectricalServices.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 try
                 {
