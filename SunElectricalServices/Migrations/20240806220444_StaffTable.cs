@@ -24,7 +24,14 @@ namespace SunElectricalServices.Migrations
                 oldType: "nvarchar(max)");
 
             migrationBuilder.AddColumn<string>(
-                name: "Availability",
+                name: "Gender",
+                table: "Staff",
+                type: "nvarchar(max)",
+                nullable: false,
+                defaultValue: "");
+
+            migrationBuilder.AddColumn<string>(
+                name: "Phone",
                 table: "Staff",
                 type: "nvarchar(max)",
                 nullable: false,
@@ -53,7 +60,11 @@ namespace SunElectricalServices.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "Availability",
+                name: "Gender",
+                table: "Staff");
+
+            migrationBuilder.DropColumn(
+                name: "Phone",
                 table: "Staff");
 
             migrationBuilder.AlterColumn<string>(
