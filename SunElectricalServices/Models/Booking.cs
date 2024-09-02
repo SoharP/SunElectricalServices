@@ -7,7 +7,10 @@ namespace SunElectricalServices.Models
 {
     public class Booking
     {
-       [Key] public int BookingID { get; set; } //Unique identifier for each booking
+        [Key] 
+        public int BookingID { get; set; } //Unique identifier for each booking
+
+        [ForeignKey("Customer")] 
         public int CustomerID { get; set; }
 
         [DataType(DataType.Time)]

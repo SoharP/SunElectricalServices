@@ -48,7 +48,6 @@ namespace SunElectricalServices.Controllers
         // GET: Bookings/Create
         public IActionResult Create()
         {
-            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Phone");
             return View();
         }
 
@@ -59,13 +58,13 @@ namespace SunElectricalServices.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("BookingID,CustomerID,Time,Day,Date")] Booking booking)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 _context.Add(booking);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Phone", booking.CustomerID);
+            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "First_Name", booking.CustomerID);
             return View(booking);
         }
 
@@ -82,7 +81,7 @@ namespace SunElectricalServices.Controllers
             {
                 return NotFound();
             }
-            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Phone", booking.CustomerID);
+            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "First_Name", booking.CustomerID);
             return View(booking);
         }
 
@@ -98,7 +97,7 @@ namespace SunElectricalServices.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 try
                 {
@@ -118,7 +117,7 @@ namespace SunElectricalServices.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Phone", booking.CustomerID);
+            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "First_Name", booking.CustomerID);
             return View(booking);
         }
 
