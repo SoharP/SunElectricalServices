@@ -3,6 +3,15 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SunElectricalServices.Models
 {
+    public enum Gender
+    {
+        [Display(Name = "Male")]
+        Male,
+        [Display(Name = "Female")]
+        Female,
+        [Display(Name = "Prefer not to say")]
+        Prefernottosay
+    }
     public class Staff
     {
       [Key] public int StaffID { get; set; } // This is the Staff's Unique Identifier

@@ -22,7 +22,7 @@ namespace SunElectricalServices.Controllers
         // GET: Bookings
         public async Task<IActionResult> Index()
         {
-            var sunContext = _context.Booking.Include(b => b.Customer);
+            var sunContext = _context.Booking.Include(b => b.Customer).AsQueryable();
             return View(await sunContext.ToListAsync());
         }
 
@@ -48,6 +48,7 @@ namespace SunElectricalServices.Controllers
         // GET: Bookings/Create
         public IActionResult Create()
         {
+            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "First_Name");
             return View();
         }
 
@@ -56,7 +57,7 @@ namespace SunElectricalServices.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BookingID,First_Name,Time,Day,Date")] Booking booking)
+        public async Task<IActionResult> Create([Bind("BookingID,Time,Day,Date, CustomerID")] Booking booking)
         {
             if (!ModelState.IsValid)
             {
