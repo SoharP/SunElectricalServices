@@ -20,9 +20,40 @@ namespace SunElectricalServices.Controllers
         }
 
         // GET: Customers
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder)
         {
-            return View(await _context.Customer.ToListAsync());
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewData["DateSortParm"] = sortOrder == "Last_name" ? "Address" : "Last_Name";
+            var customers = from s in _context.Customer
+                           select s;
+            switch (sortOrder)
+            {
+                case "First_Name":
+                    customers = customers.OrderByDescending(s => s.First_Name);
+                    break;
+                case "Last_Name":
+                    customers = customers.OrderBy(s => s.Last_Name);
+                    break;
+                case "Address":
+                    customers = customers.OrderByDescending(s => s.Address);
+                    break;
+                case "City":
+                    customers = customers.OrderBy(s => s.City);
+                    break;
+                case "Zip":
+                    customers = customers.OrderBy(s => s.Zip);
+                    break;
+                case "Email":
+                    customers = customers.OrderBy(s => s.Email);
+                    break;
+                case "Phone":
+                    customers = customers.OrderBy(s => s.Email);
+                    break;
+                default:
+                    customers = customers.OrderBy(s => s.Phone);
+                    break;
+            }
+            return View(await customers.AsNoTracking().ToListAsync());
         }
 
         // GET: Customers/Details/5
