@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ using SunElectricalServices.Models;
 
 namespace SunElectricalServices.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CustomersController : Controller
     {
         private readonly SunContext _context;
@@ -20,12 +22,19 @@ namespace SunElectricalServices.Controllers
         }
 
         // GET: Customers
-        public async Task<IActionResult> Index(string sortOrder)
+        public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewData["DateSortParm"] = sortOrder == "Last_name" ? "Address" : "Last_Name";
+            ViewData["CurrentFilter"] = searchString;
+
             var customers = from s in _context.Customer
                            select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                customers = customers.Where(s => s.Last_Name.Contains(searchString)
+                                       || s.First_Name.Contains(searchString));
+            }
             switch (sortOrder)
             {
                 case "First_Name":

@@ -6,7 +6,11 @@ var connectionString = builder.Configuration.GetConnectionString("Connection") ?
 
 builder.Services.AddDbContext<SunContext>(options => options.UseSqlServer(connectionString));
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<SunContext>();
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
+    .AddDefaultTokenProviders()
+    .AddRoles<IdentityRole>()
+    .AddEntityFrameworkStores<SunContext>();
+    
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
