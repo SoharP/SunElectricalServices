@@ -31,22 +31,22 @@ public class SunContext : IdentityDbContext<IdentityUser>
             new IdentityUser
             {
                 Id = "1",
-                UserName = "admin@example.com",
-                NormalizedUserName = "ADMIN@EXAMPLE>COM",
-                Email = "admin@example.com",
-                NormalizedEmail = "ADMIN@EXAMPLE.COM",
+                UserName = "admin",
+                NormalizedUserName = "ADMIN",
+                Email = "admin@sunelectrical.com",
+                NormalizedEmail = "ADMIN@SUNELECTRICAL.COM",
                 EmailConfirmed = true,
-                PasswordHash = harsher.HashPassword(null, "Admin123")
+                PasswordHash = harsher.HashPassword(null, "Admin@123")
             },
             new IdentityUser
             {
                 Id = "2",
-                UserName = "employee@example.com",
-                NormalizedUserName = "EMPLOYEE@EXAMPLE>COM",
-                Email = "employee@example.com",
-                NormalizedEmail = "EMPLOYEE@EXAMPLE.COM",
+                UserName = "Sohar",
+                NormalizedUserName = "SOHAR",
+                Email = "ac116496@avcol.school.nz",
+                NormalizedEmail = "AC116496@AVCOL.SCHOOL.NZ",
                 EmailConfirmed = true,
-                PasswordHash = harsher.HashPassword(null, "Employee123")
+                PasswordHash = harsher.HashPassword(null, "Employee@123")
             }
 
         );
