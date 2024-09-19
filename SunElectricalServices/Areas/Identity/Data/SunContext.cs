@@ -12,6 +12,14 @@ public class SunContext : IdentityDbContext<IdentityUser>
     {
     }
 
+    public DbSet<SunElectricalServices.Models.Booking> Booking { get; set; } = default!;
+
+    public DbSet<SunElectricalServices.Models.Customer> Customer { get; set; } = default!;
+
+    public DbSet<SunElectricalServices.Models.Service> Service { get; set; } = default!;
+
+    public DbSet<SunElectricalServices.Models.Staff> Staff { get; set; } = default!;
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
@@ -36,7 +44,7 @@ public class SunContext : IdentityDbContext<IdentityUser>
                 Email = "admin@sunelectrical.com",
                 NormalizedEmail = "ADMIN@SUNELECTRICAL.COM",
                 EmailConfirmed = true,
-                PasswordHash = harsher.HashPassword(null, "Admin@123")
+                PasswordHash = harsher.HashPassword(null, "Admin123")
             },
             new IdentityUser
             {
@@ -46,7 +54,7 @@ public class SunContext : IdentityDbContext<IdentityUser>
                 Email = "ac116496@avcol.school.nz",
                 NormalizedEmail = "AC116496@AVCOL.SCHOOL.NZ",
                 EmailConfirmed = true,
-                PasswordHash = harsher.HashPassword(null, "Employee@123")
+                PasswordHash = harsher.HashPassword(null, "Employee123")
             }
 
         );
@@ -58,11 +66,5 @@ public class SunContext : IdentityDbContext<IdentityUser>
 
     }
 
-public DbSet<SunElectricalServices.Models.Booking> Booking { get; set; } = default!;
 
-public DbSet<SunElectricalServices.Models.Customer> Customer { get; set; } = default!;
-
-public DbSet<SunElectricalServices.Models.Service> Service { get; set; } = default!;
-
-public DbSet<SunElectricalServices.Models.Staff> Staff { get; set; } = default!;
 }

@@ -3,10 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace SunElectricalServices.Migrations
 {
     /// <inheritdoc />
-    public partial class UpdatedTables : Migration
+    public partial class tablesupdated : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -239,6 +241,33 @@ namespace SunElectricalServices.Migrations
                         principalTable: "Staff",
                         principalColumn: "StaffID",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[,]
+                {
+                    { "1", null, "Admin", "ADMIN" },
+                    { "2", null, "Staff", "STAFF" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[,]
+                {
+                    { "1", 0, "b2ff8acf-a222-4bf6-9a96-1f45e63671f7", "admin@sunelectrical.com", true, false, null, "ADMIN@SUNELECTRICAL.COM", "ADMIN", "AQAAAAIAAYagAAAAEFlSs3fr6kCTGfbhgLBGsvOuoF2elH0aqSTXXKiK23uCv0gC92KETmpEC9JDnxgbyg==", null, false, "76edb181-a5a1-4d38-8d90-41babefffe8a", false, "admin" },
+                    { "2", 0, "9f1fe76c-c559-4d88-b144-46cee10d588e", "ac116496@avcol.school.nz", true, false, null, "AC116496@AVCOL.SCHOOL.NZ", "SOHAR", "AQAAAAIAAYagAAAAELSAryP0oJJwYjGdOsUEDfYfgutuxktMrkO7H39Y3/1X4w5N2yf5rYqu5oiRGsevGw==", null, false, "96709255-2a3b-4eac-adba-9c05a618c18c", false, "Sohar" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUserRoles",
+                columns: new[] { "RoleId", "UserId" },
+                values: new object[,]
+                {
+                    { "1", "1" },
+                    { "2", "2" }
                 });
 
             migrationBuilder.CreateIndex(

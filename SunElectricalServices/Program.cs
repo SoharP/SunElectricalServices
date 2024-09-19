@@ -8,7 +8,7 @@ builder.Services.AddDbContext<SunContext>(options => options.UseSqlServer(connec
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddDefaultTokenProviders()
-    .AddRoles<IdentityRole>()
+    .AddRoles<IdentityRole>()     
     .AddEntityFrameworkStores<SunContext>();
     
 
@@ -30,6 +30,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

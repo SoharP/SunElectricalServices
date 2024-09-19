@@ -157,15 +157,15 @@ namespace SunElectricalServices.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "781273fb-3be6-463f-86bd-91678cb1d3dc",
+                            ConcurrencyStamp = "b2ff8acf-a222-4bf6-9a96-1f45e63671f7",
                             Email = "admin@sunelectrical.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@SUNELECTRICAL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEPPMTYsEtOL3X8z59lyYnFTikzJ/POqBDHU14vp5IjWOS/MXOXPsk6s0fSDmN5UBqQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFlSs3fr6kCTGfbhgLBGsvOuoF2elH0aqSTXXKiK23uCv0gC92KETmpEC9JDnxgbyg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f1d5f51c-2b64-40c8-8008-b54f9416f11e",
+                            SecurityStamp = "76edb181-a5a1-4d38-8d90-41babefffe8a",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         },
@@ -173,15 +173,15 @@ namespace SunElectricalServices.Migrations
                         {
                             Id = "2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9af296c3-ce07-4cf2-9a08-3fe2cdecf5e3",
+                            ConcurrencyStamp = "9f1fe76c-c559-4d88-b144-46cee10d588e",
                             Email = "ac116496@avcol.school.nz",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "AC116496@AVCOL.SCHOOL.NZ",
                             NormalizedUserName = "SOHAR",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGQLy1oeTncc8D3qaKgY/ehkLIunuLIeW2dZfMIJz2o1M1saRFTJPgp3b6rk/IFB1A==",
+                            PasswordHash = "AQAAAAIAAYagAAAAELSAryP0oJJwYjGdOsUEDfYfgutuxktMrkO7H39Y3/1X4w5N2yf5rYqu5oiRGsevGw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "391aec46-8817-4884-9760-5fae58e8d215",
+                            SecurityStamp = "96709255-2a3b-4eac-adba-9c05a618c18c",
                             TwoFactorEnabled = false,
                             UserName = "Sohar"
                         });

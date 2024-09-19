@@ -12,8 +12,8 @@ using SunElectricalServices.Areas.Identity.Data;
 namespace SunElectricalServices.Migrations
 {
     [DbContext(typeof(SunContext))]
-    [Migration("20240909224407_UpdatedTables")]
-    partial class UpdatedTables
+    [Migration("20240919030950_tablesupdated")]
+    partial class tablesupdated
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,6 +50,20 @@ namespace SunElectricalServices.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "1",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "2",
+                            Name = "Staff",
+                            NormalizedName = "STAFF"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -140,6 +154,40 @@ namespace SunElectricalServices.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "1",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "b2ff8acf-a222-4bf6-9a96-1f45e63671f7",
+                            Email = "admin@sunelectrical.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ADMIN@SUNELECTRICAL.COM",
+                            NormalizedUserName = "ADMIN",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFlSs3fr6kCTGfbhgLBGsvOuoF2elH0aqSTXXKiK23uCv0gC92KETmpEC9JDnxgbyg==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "76edb181-a5a1-4d38-8d90-41babefffe8a",
+                            TwoFactorEnabled = false,
+                            UserName = "admin"
+                        },
+                        new
+                        {
+                            Id = "2",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "9f1fe76c-c559-4d88-b144-46cee10d588e",
+                            Email = "ac116496@avcol.school.nz",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "AC116496@AVCOL.SCHOOL.NZ",
+                            NormalizedUserName = "SOHAR",
+                            PasswordHash = "AQAAAAIAAYagAAAAELSAryP0oJJwYjGdOsUEDfYfgutuxktMrkO7H39Y3/1X4w5N2yf5rYqu5oiRGsevGw==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "96709255-2a3b-4eac-adba-9c05a618c18c",
+                            TwoFactorEnabled = false,
+                            UserName = "Sohar"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -204,6 +252,18 @@ namespace SunElectricalServices.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "1",
+                            RoleId = "1"
+                        },
+                        new
+                        {
+                            UserId = "2",
+                            RoleId = "2"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
