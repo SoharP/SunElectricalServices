@@ -18,6 +18,15 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
-  background-color: lightcyan ;
+    margin-bottom: 60px;
+    background-image: url('../images/black sky background.jpg');
+    color: white
+}
+
+th {
+    color: white;
+}
+
+tr {
+    color: white;
 }
