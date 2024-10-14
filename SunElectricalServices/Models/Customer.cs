@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SunElectricalServices.Models
 {
-    public class Customer
+    public class Customers
     {
 
        [Key] public int CustomerID { get; set; } // This is the Customer's Unique Identifier
@@ -17,6 +17,7 @@ namespace SunElectricalServices.Models
         [MaxLength(15)]
 
         [DisplayName("Last Name")]
+        [DataType(DataType.Text)] // The type of data for this field is text.
         // Will display as "Last Name"
         public string Last_Name { get; set; }
         [MaxLength(20)]
@@ -40,5 +41,9 @@ namespace SunElectricalServices.Models
         public string Phone { get; set; }
         public ICollection<Booking> Bookings { get; set; }
 
+        internal static IQueryable<Customers> AsNoTracking()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

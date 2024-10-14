@@ -1,4 +1,6 @@
-﻿@model IEnumerable<SunElectricalServices.Models.Customer>
+﻿@using SunElectricalServices
+@model IEnumerable<SunElectricalServices.Models.Customers>
+
 
 @{
     ViewData["Title"] = "Customers";
@@ -26,7 +28,13 @@
     <thead>
         <tr>
             <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">@Html.DisplayNameFor(model => model.First_Name)</a>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Last Name</a>
+            </th>
+            <th>
+                First Name
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">First Name</a>
             </th>
             <th>
                 <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">@Html.DisplayNameFor(model => model.Last_Name)</a>
@@ -88,3 +96,5 @@
 }
     </tbody>
 </table>
+
+

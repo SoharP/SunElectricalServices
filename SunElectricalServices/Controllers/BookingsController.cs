@@ -22,8 +22,8 @@ namespace SunElectricalServices.Controllers
         // GET: Bookings
         public async Task<IActionResult> Index()
         {
-            var SunContext = _context.Booking.Include(b => b.Customer);
-            return View(await SunContext.ToListAsync());
+            var sunContext = _context.Booking.Include(b => b.Customer);
+            return View(await sunContext.ToListAsync());
         }
 
         // GET: Bookings/Details/5
@@ -59,7 +59,7 @@ namespace SunElectricalServices.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("BookingID,CustomerID,Time,Services,Date")] Booking booking)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 _context.Add(booking);
                 await _context.SaveChangesAsync();
@@ -98,7 +98,7 @@ namespace SunElectricalServices.Controllers
                 return NotFound();
             }
 
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 try
                 {

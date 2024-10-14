@@ -35,8 +35,10 @@ public class Booking
     public string Services { get; set; }
 
     [DataType(DataType.Date)]
+    [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)] // This attribute formats the date to be in a day/month/year form.
     public DateTime Date { get; set; }
     [ForeignKey(nameof(CustomerID))]
-    public Customer Customer { get; set; }
+
+    public Customers Customer { get; set; }
 }
 }

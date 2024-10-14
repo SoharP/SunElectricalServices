@@ -14,7 +14,7 @@ public class SunContext : IdentityDbContext<IdentityUser>
 
     public DbSet<SunElectricalServices.Models.Booking> Booking { get; set; } = default!;
 
-    public DbSet<SunElectricalServices.Models.Customer> Customer { get; set; } = default!;
+    public DbSet<SunElectricalServices.Models.Customers> Customer { get; set; } = default!;
 
     public DbSet<SunElectricalServices.Models.Service> Service { get; set; } = default!;
 

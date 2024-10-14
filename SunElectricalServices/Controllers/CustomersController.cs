@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ContosoUniversity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -22,11 +23,26 @@ namespace SunElectricalServices.Controllers
         }
 
         // GET: Customers
-        public async Task<IActionResult> Index(string sortOrder, string searchString)
+        public async Task<IActionResult> Index(
+            string sortOrder,
+            string currentFilter,
+            string searchString,
+            int? pageNumber)
+
         {
+            ViewData["CurrentSort"] = sortOrder;
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewData["DateSortParm"] = sortOrder == "Last_name" ? "Address" : "Last_Name";
             ViewData["CurrentFilter"] = searchString;
+
+            if (searchString != null)
+            {
+                pageNumber = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
 
             var customers = from s in _context.Customer
                            select s;
@@ -62,7 +78,8 @@ namespace SunElectricalServices.Controllers
                     customers = customers.OrderBy(s => s.Phone);
                     break;
             }
-            return View(await customers.AsNoTracking().ToListAsync());
+            int pageSize = 3;
+            return View(await PaginatedList<Customers>.CreateAsync(Customers.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
 
         // GET: Customers/Details/5
@@ -94,7 +111,7 @@ namespace SunElectricalServices.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CustomerID,First_Name,Last_Name,Address,Suburb,City,Zip,Email,Phone")] Customer customer)
+        public async Task<IActionResult> Create([Bind("CustomerID,First_Name,Last_Name,Address,Suburb,City,Zip,Email,Phone")] Customers customer)
         {
             if (!ModelState.IsValid)
             {
@@ -126,7 +143,7 @@ namespace SunElectricalServices.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CustomerID,First_Name,Last_Name,Address,Suburb,City,Zip,Email,Phone")] Customer customer)
+        public async Task<IActionResult> Edit(int id, [Bind("CustomerID,First_Name,Last_Name,Address,Suburb,City,Zip,Email,Phone")] Customers customer)
         {
             if (id != customer.CustomerID)
             {
