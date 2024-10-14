@@ -12,8 +12,8 @@ using SunElectricalServices.Areas.Identity.Data;
 namespace SunElectricalServices.Migrations
 {
     [DbContext(typeof(SunContext))]
-    [Migration("20240919030950_tablesupdated")]
-    partial class tablesupdated
+    [Migration("20241013100503_UpdatedModels")]
+    partial class UpdatedModels
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -160,15 +160,15 @@ namespace SunElectricalServices.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b2ff8acf-a222-4bf6-9a96-1f45e63671f7",
+                            ConcurrencyStamp = "5630e872-3f35-4b30-b025-821caa4fc7ef",
                             Email = "admin@sunelectrical.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@SUNELECTRICAL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFlSs3fr6kCTGfbhgLBGsvOuoF2elH0aqSTXXKiK23uCv0gC92KETmpEC9JDnxgbyg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEIRa/zUn3VcqmqXxP3BxrW8DoIeuCJG9G1IItE/8qPB5VTp1Qxnj/0hqOkjWBFhbpw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "76edb181-a5a1-4d38-8d90-41babefffe8a",
+                            SecurityStamp = "f6c94dde-daa2-4654-aa3f-83ff6fafd603",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         },
@@ -176,15 +176,15 @@ namespace SunElectricalServices.Migrations
                         {
                             Id = "2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9f1fe76c-c559-4d88-b144-46cee10d588e",
+                            ConcurrencyStamp = "f71d1746-a12b-4024-a7f3-39af3500b706",
                             Email = "ac116496@avcol.school.nz",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "AC116496@AVCOL.SCHOOL.NZ",
                             NormalizedUserName = "SOHAR",
-                            PasswordHash = "AQAAAAIAAYagAAAAELSAryP0oJJwYjGdOsUEDfYfgutuxktMrkO7H39Y3/1X4w5N2yf5rYqu5oiRGsevGw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEL59emlcGXR4/ZBpEHQEbIOU96Tj/MMW1NPOeO9o+tHObz/aeqKawEO/8J6FFb9DFQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "96709255-2a3b-4eac-adba-9c05a618c18c",
+                            SecurityStamp = "32ba2e9b-19a0-4bd3-981d-4e381753d2a9",
                             TwoFactorEnabled = false,
                             UserName = "Sohar"
                         });
@@ -301,8 +301,9 @@ namespace SunElectricalServices.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("Day")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("Services")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("Time")
                         .HasColumnType("datetime2");

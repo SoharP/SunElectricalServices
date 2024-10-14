@@ -1,4 +1,4 @@
-    using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SunElectricalServices.Areas.Identity.Data;
 var builder = WebApplication.CreateBuilder(args);

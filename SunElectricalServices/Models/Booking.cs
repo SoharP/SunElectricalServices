@@ -5,19 +5,21 @@ using System.Diagnostics;
 
 namespace SunElectricalServices.Models
 { 
-    public enum Day
+    public enum Services
 {
-    [Display(Name = "Monday")]
-    Monday,
-    [Display(Name = "Tuesday")]
-    Tuesday,
-    [Display(Name = "Wednesday")]
-    Wednesday,
-    [Display(Name = "Thursday")]
-    Thursday,
-    [Display(Name = "Friday")]
-    Friday
-}
+    [Display(Name = "Commercial")]
+        Commercial,
+    [Display(Name = "Residential")]
+        Residential,
+    [Display(Name = "Maintenance & Servicing")]
+        Maintenance,
+    [Display(Name = "EV Chargers")]
+        EVChargers,
+    [Display(Name = "Smart Home")]
+        SmarttHome,
+        [Display(Name = "Smart Home")]
+        SmartHome
+    }
 
 
 public class Booking
@@ -29,7 +31,8 @@ public class Booking
 
     [DataType(DataType.Time)]
     public DateTime Time { get; set; } // time of booking the service 
-    public DateTime Day { get; set; }
+
+    public string Services { get; set; }
 
     [DataType(DataType.Date)]
     public DateTime Date { get; set; }

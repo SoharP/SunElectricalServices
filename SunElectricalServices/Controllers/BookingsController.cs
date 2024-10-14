@@ -22,8 +22,8 @@ namespace SunElectricalServices.Controllers
         // GET: Bookings
         public async Task<IActionResult> Index()
         {
-            var sunContext = _context.Booking.Include(b => b.Customer).AsQueryable();
-            return View(await sunContext.ToListAsync());
+            var SunContext = _context.Booking.Include(b => b.Customer);
+            return View(await SunContext.ToListAsync());
         }
 
         // GET: Bookings/Details/5
@@ -48,7 +48,7 @@ namespace SunElectricalServices.Controllers
         // GET: Bookings/Create
         public IActionResult Create()
         {
-            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "First_Name");
+            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Email");
             return View();
         }
 
@@ -57,7 +57,7 @@ namespace SunElectricalServices.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BookingID,Time,Day,Date, CustomerID")] Booking booking)
+        public async Task<IActionResult> Create([Bind("BookingID,CustomerID,Time,Services,Date")] Booking booking)
         {
             if (!ModelState.IsValid)
             {
@@ -65,7 +65,7 @@ namespace SunElectricalServices.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "First_Name", booking.CustomerID);
+            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Email", booking.CustomerID);
             return View(booking);
         }
 
@@ -82,7 +82,7 @@ namespace SunElectricalServices.Controllers
             {
                 return NotFound();
             }
-            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "First_Name", booking.CustomerID);
+            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Email", booking.CustomerID);
             return View(booking);
         }
 
@@ -91,7 +91,7 @@ namespace SunElectricalServices.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("BookingID,First_Name,Time,Day,Date")] Booking booking)
+        public async Task<IActionResult> Edit(int id, [Bind("BookingID,CustomerID,Time,Services,Date")] Booking booking)
         {
             if (id != booking.BookingID)
             {
@@ -118,7 +118,7 @@ namespace SunElectricalServices.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "First_Name", booking.CustomerID);
+            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Email", booking.CustomerID);
             return View(booking);
         }
 

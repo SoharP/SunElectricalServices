@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace SunElectricalServices.Migrations
 {
     /// <inheritdoc />
-    public partial class tablesupdated : Migration
+    public partial class UpdatedModels : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -203,7 +203,7 @@ namespace SunElectricalServices.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CustomerID = table.Column<int>(type: "int", nullable: false),
                     Time = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Day = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Services = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
@@ -257,8 +257,8 @@ namespace SunElectricalServices.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "1", 0, "b2ff8acf-a222-4bf6-9a96-1f45e63671f7", "admin@sunelectrical.com", true, false, null, "ADMIN@SUNELECTRICAL.COM", "ADMIN", "AQAAAAIAAYagAAAAEFlSs3fr6kCTGfbhgLBGsvOuoF2elH0aqSTXXKiK23uCv0gC92KETmpEC9JDnxgbyg==", null, false, "76edb181-a5a1-4d38-8d90-41babefffe8a", false, "admin" },
-                    { "2", 0, "9f1fe76c-c559-4d88-b144-46cee10d588e", "ac116496@avcol.school.nz", true, false, null, "AC116496@AVCOL.SCHOOL.NZ", "SOHAR", "AQAAAAIAAYagAAAAELSAryP0oJJwYjGdOsUEDfYfgutuxktMrkO7H39Y3/1X4w5N2yf5rYqu5oiRGsevGw==", null, false, "96709255-2a3b-4eac-adba-9c05a618c18c", false, "Sohar" }
+                    { "1", 0, "5630e872-3f35-4b30-b025-821caa4fc7ef", "admin@sunelectrical.com", true, false, null, "ADMIN@SUNELECTRICAL.COM", "ADMIN", "AQAAAAIAAYagAAAAEIRa/zUn3VcqmqXxP3BxrW8DoIeuCJG9G1IItE/8qPB5VTp1Qxnj/0hqOkjWBFhbpw==", null, false, "f6c94dde-daa2-4654-aa3f-83ff6fafd603", false, "admin" },
+                    { "2", 0, "f71d1746-a12b-4024-a7f3-39af3500b706", "ac116496@avcol.school.nz", true, false, null, "AC116496@AVCOL.SCHOOL.NZ", "SOHAR", "AQAAAAIAAYagAAAAEL59emlcGXR4/ZBpEHQEbIOU96Tj/MMW1NPOeO9o+tHObz/aeqKawEO/8J6FFb9DFQ==", null, false, "32ba2e9b-19a0-4bd3-981d-4e381753d2a9", false, "Sohar" }
                 });
 
             migrationBuilder.InsertData(

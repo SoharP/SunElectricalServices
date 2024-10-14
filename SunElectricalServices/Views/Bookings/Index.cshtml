@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<SunElectricalServices.Models.Booking>
 
 @{
-    ViewData["Title"] = "Bookings";
+    ViewData["Title"] = "Index";
 }
 
-<h1>Bookings</h1>
+<h1>Index</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -16,7 +16,7 @@
                 @Html.DisplayNameFor(model => model.Time)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Day)
+                @Html.DisplayNameFor(model => model.Services)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Date)
@@ -34,13 +34,13 @@
                 @Html.DisplayFor(modelItem => item.Time)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Day)
+                @Html.DisplayFor(modelItem => item.Services)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Date)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Customer.First_Name)
+                @Html.DisplayFor(modelItem => item.Customer.Email)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.BookingID">Edit</a> |
