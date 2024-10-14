@@ -1,32 +1,158 @@
-﻿@{
+﻿﻿@{
     ViewData["Title"] = "Contact Us";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to contact us if there is anything.</p>​
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
 
-<div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">Email address</label>
-  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-</div>
-<div class="mb-3">
-  <label for="exampleFormControlTextarea1" class="form-label">Message</label>
-  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-</div>
 
-<!-- Info Box --> 
-<div class="contact info">
-    <h3>Contact Info</h3>
-    <div class="infoBox">
-        <div>
-            <span><ion-icon name="mail"></ion-icon></span>
-            <i class="fas fa-envelope"></i> <strong>Email: <a href="sunelectricalservices@gmail.com">sunelectricalservices@gmail.com</a>
-        </div>
-        <div> 
-            <i class="fas fa-phone-alt"></i> <strong>Phone: <a href="tel:+64 024567978">+64 024567978</a> 
-        </div> 
-      </div> 
-   </div>
+        * {
+            box-sizing: border-box;
+        }
+
+        .contact-info {
+            width: 100%; /* defines that the container should be the full width. */
+            background-color: #000000; /* Background colour */
+            color: white; /* Text colour*/
+            padding: 20px; /* Creates space between the container and other elements */
+            border-radius: 16px; /* Makes the corners round */
+            text-align: center; /* Center aligns the text */
+            margin-bottom: 20px; /* Space below contact info */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Gives the container a shadow effect */
+        }
+
+        .form-container {
+            width: 100%; /* defines that the container should be the full width. */
+            padding: 20px;
+            border-radius: 16px; /* Makes the corners round */
+            background-color: #f8f9fa; /* Background colour */
+            margin-bottom: 20px; /* Creates a space below the form */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Gives the form a shadow effect around it */
+        }
+
+        .form-row {
+            display: flex;
+            justify-content: space-between; /* Spaces out the content*/
+            margin-bottom: 16px; /* Add space below rows */
+        }
+
+        input[type=text], input[type=email], select, textarea {
+            width: 100%; /* Full width */
+            padding: 12px; /* padding for the fields in the form */
+            border: 1px solid #ccc; /* Border colour */
+            border-radius: 4px; /* Makes the corners round */
+            margin-top: 6px; /* Creates a space above */
+            resize: vertical;
+        }
+
+        .input-field {
+            flex: 1; /* Make inputs take equal space */
+            margin-right: 10px; /* Space between inputs */
+        }
+
+            .input-field:last-child {
+                margin-right: 0; /* Remove margin for the last input */
+            }
+
+        input[type=submit] {
+            background-color: #000;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+            input[type=submit]:hover {
+                background-color: #444;
+            }
+
+
+        input::placeholder, textarea::placeholder, select {
+            color: #999; /* Grey colour for placeholder */
+        }
+
+        select {
+            color: #000000; /* Grey colour for select text */
+        }
+
+            select option {
+                color: #000; /* Black colour for selected options */
+            }
+
+        .map-container {
+            width: 100%; /* defines that the map should be the full width. */
+            height: 400px; /* Set height for the map */
+            border-radius: 16px; /* Rounded corners for the map */
+            overflow: hidden; /* Ensure the iframe fits within the rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+            margin-bottom: 20px; /* Space below the map */
+        }
+
+            .map-container iframe {
+                width: 100%; /* defines that the map should be the full width. */
+                height: 100%; /* Full height for the map */
+                border: 0; 
+
+            }
+    </style>
+</head>
+<body>
+
+    <div class="contact-info">
+        <h1 class="text-light">Get in touch</h1>
+        <h5>021786953</h5>
+        <h5>admin@sunelectrical.com</h5>
+    </div>
+
+    <div class="form-container">
+        <form action="https://formspree.io/f/meoqjppo" method="POST"> <!-- This sends the completed form to the formspree website so it can be processed. -->
+
+            <!-- First name and last name fields -->
+            <div class="form-row">
+                <div class="input-field">
+                    <!-- Information for the First name field including the display name and placeholder value -->
+                    <label for="fname">First Name</label>
+                    <input type="text" id="fname" name="firstname" placeholder="Your name..." required>
+                </div>
+                <div class="input-field">
+                    <!-- Information for the First name field including the display name and placeholder value -->
+                    <label for="lname">Last Name</label>
+                    <input type="text" id="lname" name="lastname" placeholder="Your last name..." required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <!-- Creates drop-down and specificies all the options -->
+                <div class="input-field">
+                    <label for="city">City</label>
+                    <select id="city" name="city" required>
+                        <option value="" disabled selected>Select your city...</option>
+                        <option value="auckland">Auckland</option>
+                        <option value="christchurch">Christchurch</option>
+                        <option value="hamilton">Hamilton</option>
+                        <option value="rotorua">Rotorua</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <!-- Email field -->
+                <div class="input-field">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Your email..." required>
+                </div>
+            </div>
+            <!-- Message field -->
+            <label for="message">Message</label>
+            <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+            <!-- Submit button -->
+            <input type="submit" value="Send">
+        </form>
+    </div>
+    
+</body>
+</html>
 
 <h4>Opening Hours:</h4>
 <p> Mon
